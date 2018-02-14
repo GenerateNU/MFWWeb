@@ -19,7 +19,7 @@ class Student(models.Model):
         return '{0} {1}'.format(self.first_name, self.last_name)
 
     def get_absolute_url(self):
-        return reverse('student-detail', args=[str(self.id)])
+        return reverse('student_detail', args=[str(self.id)])
 
 
 class Teacher(models.Model):

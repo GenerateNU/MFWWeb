@@ -1,19 +1,22 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Student List</h1>
-
+    <div class="col-sm-8 ">
+    <center><h1>Student Progress</h1></center> 
     {% if student_list %}
     <ul>
 
       {% for student in student_list %}
-      <li>
-        <a href="{{ student.get_absolute_url }}">{{ student.first_name }} {{student.last_name}}</a>
-      </li>
+          <strong>{{ student.first_name }} {{student.last_name}}</strong>
+          <div class="progress">
+            <div id = 'progressBar' class="progress-bar-striped progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:{{ student.progress }}%;">
+              {{ student.progress }}%
+          </div>
+        </div>
       {% endfor %}
-
     </ul>
     {% else %}
       <p>No students are enrolled with this teacher.</p>
     {% endif %}
+          </div>
 {% endblock %}
