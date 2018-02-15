@@ -41,3 +41,13 @@ class StudentDetailView(generic.DetailView):
             'catalog/book_detail.html',
             context={'book':book_id,}
         )
+
+def modules(request):
+    """
+    View function for the index of the site.
+    """
+    return render(
+        request,
+        'modules.html',
+        context={}
+    )

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-  {% block title %}<title>Local Library</title>{% endblock %}
+  {% block title %}<title>MFW</title><link rel="icon" href="https://pbs.twimg.com/profile_images/734542059026153474/hWceZbbV_400x400.jpg">{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,10 +21,11 @@
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
-      <ul class="sidebar-nav">
+      <ul>
           <li><a href="{% url 'index' %}">Home</a></li>
           <li><a href="{% url 'students' %}">Student</a></li>
           <li><a href="{% url 'teachers' %}">Teacher</a></li>
+          <li><a href="{% url 'modules' %}">Modules</a></li>
       </ul>
      {% endblock %}
       </div>
@@ -36,3 +37,27 @@
   </div>
 </body>
 </html>
+
+<style>
+body{
+  background-color: #392C40;
+  color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+}
+
+li a {
+  display: block;
+  background-color: white;
+  color: #392C40;
+  font-size: 18px;
+  align-items: center;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
