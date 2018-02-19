@@ -18,9 +18,6 @@ def index(request):
 
 class StudentListView(generic.ListView):
     model = Student
-    """
-    def get_queryset(self):
-        Student.objects.all() """
 
 class TeacherListView(generic.ListView):
     model = Teacher
