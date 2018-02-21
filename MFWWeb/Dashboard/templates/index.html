@@ -32,6 +32,12 @@
     <li><strong>Teachers:</strong> {{ num_teachers }}</li>
   </ul>
 
+  <form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+
 <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.malariafreeworld.org&layout=button_count&size=small&mobile_iframe=false&width=75&height=20&appId"
 width="75" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
