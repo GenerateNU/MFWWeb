@@ -52,3 +52,13 @@ def modules(request):
         'modules.html',
         context={}
     )
+
+def feedback(request):
+    """
+    View function for the index of the site.
+    """
+    return render(
+        request,
+        'feedback.html',
+        context={}
+    )
