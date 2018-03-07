@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<body>
 <h1>InteractiveMFW</h1>
 
   <p>An interactive section of MFW</p>
@@ -9,8 +10,19 @@
 
   <p>The following users are active:</p>
   <ul>
-    <li><strong>Students:</strong> {{ num_students }}</li>
-    <li><strong>Teachers:</strong> {{ num_teachers }}</li>
+    <li><strong>Students - </strong> {{ num_students }}</li>
+    <li><strong>Teachers - </strong> {{ num_teachers }}</li>
   </ul>
 
+</body>
+<style>
+
+ h1{
+   font-family: Impact, Charcoal, sans-serif;
+ }
+
+ h2{
+   font-family: Impact, Charcoal, sans-serif;
+ }
+</style>
 {% endblock %}
