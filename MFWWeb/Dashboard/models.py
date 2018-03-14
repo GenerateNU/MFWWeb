@@ -37,3 +37,21 @@ class Teacher(models.Model):
         Returns full name
         """
         return '{0} {1}'.format(self.first_name, self.last_name)
+
+class Quiz(models.Model):
+    """
+    Model representing the questions and answers
+    """
+
+    question1_answers = (
+        ('T', 'True'),
+        ('F', 'False'),
+    )
+
+    question2_answers = (
+        ('Y', 'Yes'),
+        ('N', 'No'),
+    )
+
+    question1 = models.CharField(max_length=200, help_text="True or False: Malaria is bad")
+    question2 = models.CharField(max_length=200, help_text="Enter your last name.")

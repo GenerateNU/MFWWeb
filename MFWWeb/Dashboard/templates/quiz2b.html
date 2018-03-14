@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+<form
+action= "{% if submitbutton == "Submit" %}
+{% if answer2b == "a" %}
+{% url 'quiz3c' %}
+{% endif %}
+
+{% if answer2b == "b" %}
+{% url 'quiz3d' %}
+{% endif %}{% endif %}" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="Submit" name="submit" value="Submit"/>
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
+{% endblock %}

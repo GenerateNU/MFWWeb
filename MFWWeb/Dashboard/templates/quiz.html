@@ -1,0 +1,90 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+<form
+action= "{% if submitbutton == "Submit" %}
+{% if answer == "a" %}
+{% url 'quiz2a' %}
+{% endif %}
+
+{% if answer == "false" %}
+{% url 'quiz2b' %}
+{% endif %}{% endif %}" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="Submit" name="submit" value="Submit"/>
+</form>
+
+
+</body>
+</html>
+{% endblock %}
+
+
+
+<!---
+<h1>Quiz</h1>
+<form action="{url 'admin'}" method="post">
+  <fieldset>
+    <legend for="your_name" style="color: white">Question 1: Malaria is bad </legend>
+    <label><input id="your_name" type="radio" name="1">True</label>
+    <label><input id="your_name" type="radio" name="1">False</label>
+    </fieldset>
+  <input type="submit" value= "submit" style="color: green">
+
+</form> -->
+<!---
+<form action="{% url 'index' %}" method="POST">
+{% csrf_token %}
+<fieldset>
+  <legend for="your_answer" style="color: white">Question 1: Malaria is bad </legend>
+  <label><input id="your_answer1" type="radio" name="1">True</label>
+  <label><input id="your_answer2" type="radio" name="1">False</label>
+ </fieldset>
+<input style="color: green" type="Submit" name="Submit" value="Submit"/>
+</form>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+
+
+<body>
+<form action="" method="POST">
+{% csrf_token %}
+<legend for="your_answer" style="color: white">Question 1: Malaria is bad </legend>
+<label><input type="radio" name="true" value= "true">True</label>
+<label><input type="radio" name="false" value= "false">False</label>
+
+<input type="Submit" name="Submit" value="Submit"/>
+</form>
+
+
+{% if submitbutton == "Submit"  %}
+
+{% if answer == "true"  %}
+<h1> {{answer}}</h1>
+{% endif %}
+
+{% if answer1 == "false"  %}
+<h1>{{answer1}}</h1>
+{% endif %}
+
+{% endif %}
+
+
+</body>
+</html>
+
+
+
+
+
+
+</form> -->
