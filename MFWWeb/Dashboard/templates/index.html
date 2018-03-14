@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],
     t = window.twttr || {};
@@ -20,6 +21,7 @@
 }(document, "script", "twitter-wjs"));
 </script>
 
+
 <h1>InteractiveMFW</h1>
 
   <p>An interactive section of MFW</p>
@@ -28,8 +30,8 @@
 
   <p>The following users are active:</p>
   <ul>
-    <li><strong>Students:</strong> {{ num_students }}</li>
-    <li><strong>Teachers:</strong> {{ num_teachers }}</li>
+    <li><strong>Students - </strong> {{ num_students }}</li>
+    <li><strong>Teachers - </strong> {{ num_teachers }}</li>
   </ul>
 
 <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.malariafreeworld.org&layout=button_count&size=small&mobile_iframe=false&width=75&height=20&appId"
@@ -38,4 +40,16 @@ width="75" height="20" style="border:none;overflow:hidden" scrolling="no" frameb
 <a class="twitter-share-button"
   href="https://twitter.com/intent/tweet?text=I%20Love%20Malaria%20Free%20World%20App">
 Tweet</a>
+</body>
+<style>
+
+ h1{
+   font-family: Impact, Charcoal, sans-serif;
+ }
+
+ h2{
+   font-family: Impact, Charcoal, sans-serif;
+ }
+</style>
+>>>>>>> fca493fd7acadc504aacebd5ebe0f34f60cfe9c9
 {% endblock %}
