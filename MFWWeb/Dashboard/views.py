@@ -50,6 +50,7 @@ def modules(request):
         'modules.html',
         context={}
     )
+<<<<<<< HEAD
 '''
 def quiz(request):
 
@@ -208,3 +209,15 @@ def frontpage(request):
             'frontpage.html',
             context={}
         )
+=======
+
+def feedback(request):
+    """
+    View function for the index of the site.
+    """
+    return render(
+        request,
+        'feedback.html',
+        context={}
+    )
+>>>>>>> 896509d72268644083480d61b6f9b4055ca60ea0
