@@ -2,6 +2,25 @@
 
 {% block content %}
     <div class="col-sm-8 ">
-    <center><h1>Teacher View</h1></center> 
-    </div>
+    {% if user.is_authenticated %}
+      <center><h1>Hello, {{ user.get_full_name }}</h1></center>
+      <center><h1>Student Progress</h1></center>
+      {% if student_list %}
+      <ul>
+        {% for student in student_list %}
+            <strong>{{ student.first_name }} {{student.last_name}}</strong>
+            <div class="progress">
+              <div id = 'progressBar' class="progress-bar-striped progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:{{ student.progress }}%;">
+                {{ student.progress }}%
+            </div>
+          </div>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>No students are enrolled with this teacher.</p>
+      {% endif %}
+      {% else %}
+        <p>Please log in.</p>
+    {% endif %}
+          </div>
 {% endblock %}
