@@ -39,10 +39,6 @@ class Teacher(models.Model):
         return '{0} {1}'.format(self.first_name, self.last_name)
 
 class Quiz(models.Model):
-    """
-    Model representing the questions and answers
-    """
-
     question1_answers = (
         ('T', 'True'),
         ('F', 'False'),

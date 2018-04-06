@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+var questions = {{ questions }}
+var responses = {{ responses }}
+
+
+{% block content %}
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+  All Done! <br/>
+  Questions: {{ questions }}<br/>
+  Answers: {{ responses }}
+</body>
+</html>
+{% endblock %}

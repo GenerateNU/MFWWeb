@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from . import forms
 
 urlpatterns = [
     path('',views.index,name='index'),
@@ -9,12 +10,16 @@ urlpatterns = [
     path('teachers/', views.TeacherListView.as_view(), name='teachers'),
     path('students/<int:id >', views.StudentDetailView.as_view(), name='student-detail'),
     path('students/', views.StudentDetailView.as_view(), name='student-detail'),
-    path('quiz/',views.quiz,name='quiz'),
-    path('quiz2a/',views.quiz2a,name='quiz2a'),
-    path('quiz2b/',views.quiz2b,name='quiz2b'),
-    path('quiz3a/',views.quiz3a,name='quiz3a'),
-    path('quiz3b/',views.quiz3b,name='quiz3b'),
-    path('quiz3c/',views.quiz3c,name='quiz3c'),
-    path('quiz3d/',views.quiz3d,name='quiz3d'),
+    path('prequiz/', views.prequiz, name='prequiz'),
+    path('q1/', views.q1, name='q1'),
+    path('q2/', views.q2, name='q2'),
+    path('q3/', views.q3, name='q3'),
+    path('q4/', views.q4, name='q4'),
+    path('q5/', views.q5, name='q5'),
+    path('q6/', views.q6, name='q6'),
+    path('q7/', views.q7, name='q7'),
+    path('q8/', views.q8, name='q8'),
+    path('q9/', views.q9, name='q9'),
+    path('q10/', views.q10, name='q10'),
     path('feedback/', views.feedback, name='feedback'),
 ]
