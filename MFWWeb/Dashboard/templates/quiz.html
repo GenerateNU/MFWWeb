@@ -50,6 +50,7 @@ action="
 {% endif %}
 "
 method="POST"
+class = "main"
 >
 Question: {{num}} <br />
 <label> {{ question }}</label>
@@ -57,9 +58,29 @@ Question: {{num}} <br />
 {% csrf_token %}
 {{ form.as_p }}
 
-<input type="Submit" name="Submit" value="Submit"/>
+<input type="Submit" name="Submit" value="Submit" class="submit"/>
 </form>
 
 </body>
 </html>
+
+<style>
+.submit{
+  color: #60496d;
+}
+.main {
+    background-color: #60496d;
+    border: 14px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Impact, Charcoal, sans-serif;
+}
+</style>
 {% endblock %}

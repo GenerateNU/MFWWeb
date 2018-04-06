@@ -9,9 +9,43 @@ var responses = {{ responses }}
 <title>User Information Form</title>
 </head>
 <body>
-  All Done! <br/>
-  Questions: {{ questions }}<br/>
-  Answers: {{ responses }}
+  <div class = "body">
+    <div class= "done"> All Done! </div> <br/>
+    Questions: {{ questions }}<br/> <br/>
+    Answers: {{ responses }} </br>
+    <form>
+<input class= "goback" type="button" value="Go Back" onclick="window.location.href='{% url 'q1' %}'" />
+</form>
+  </div>
+
+
 </body>
 </html>
+<style>
+.done {
+  font-size: 32px;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.goback {
+  color: #60496d;
+}
+.body {
+    background-color: #60496d;
+    border: 10px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Charcoal, sans-serif;
+}
+
+
+
+</style
 {% endblock %}
