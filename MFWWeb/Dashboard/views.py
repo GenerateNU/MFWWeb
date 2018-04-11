@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student, Teacher
+from .models import Student, Teacher, Class
 from django.views import generic
 from .forms import Quiz
 from django.http import HttpResponseRedirect
