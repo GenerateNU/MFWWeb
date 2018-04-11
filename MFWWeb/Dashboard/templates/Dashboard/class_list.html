@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="col-sm-8 ">
+    {% if class_list %}
+    <ul>
+      {% for class in class_list %}
+        <li>{{ class.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No classes are created with this teacher.</p>
+    {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<form action="" method="POST">
+    <h3>Create a new class</h3>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit"/>
+</form>
+{% endblock %}

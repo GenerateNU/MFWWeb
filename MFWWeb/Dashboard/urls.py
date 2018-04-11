@@ -22,4 +22,6 @@ urlpatterns = [
     path('q9/', views.q9, name='q9'),
     path('q10/', views.q10, name='q10'),
     path('feedback/', views.feedback, name='feedback'),
+    path('create_class/', views.create_class, name='create_class'),
+    path('classes/', views.ClassListView.as_view(), name='classes'),
 ]

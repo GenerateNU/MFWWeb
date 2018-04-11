@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Student, Teacher, Class
 from django.views import generic
-from .forms import Quiz
+from .forms import Quiz, ClassForm
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 import random
@@ -36,6 +36,9 @@ class StudentListView(generic.ListView):
 
 class TeacherListView(generic.ListView):
     model = Teacher
+
+class ClassListView(generic.ListView):
+    model = Class
 
 class StudentDetailView(generic.DetailView):
     model = Student
@@ -247,4 +250,14 @@ def feedback(request):
         request,
         'feedback.html',
         context={}
+    )
+
+def create_class(request):
+    form = ClassForm(request.POST)
+    if form.is_valid():
+        class_name = form.cleaned_data.get("class_name")
+        new_class = Class(name=class_name)
+        new_class.save()
+    return render(
+        request, 'class/create_class.html', {'form': form}
     )
