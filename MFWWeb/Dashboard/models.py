@@ -38,6 +38,7 @@ class Teacher(models.Model):
         """
         return '{0} {1}'.format(self.first_name, self.last_name)
 
+
 class Quiz(models.Model):
     question1_answers = (
         ('T', 'True'),
@@ -51,3 +52,17 @@ class Quiz(models.Model):
 
     question1 = models.CharField(max_length=200, help_text="True or False: Malaria is bad")
     question2 = models.CharField(max_length=200, help_text="Enter your last name.")
+
+class Class(models.Model):
+    """
+    Model representing a class
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Class Unique ID")
+    name = models.CharField(max_length=200, help_text="Enter a classroom name.")
+    student = models.ManyToManyField(Student, help_text="Select student name.")
+
+    def __str__(self):
+        """
+        Returns class name
+        """
+        return '{0}'.format(self.name)
