@@ -56,7 +56,10 @@ typings/
 
 # dotenv environment variables file
 .env
-Pipfile
+Pipfile*
 
 # vscode config
 .vscode/
+
+# db file
+*.sqlite3
