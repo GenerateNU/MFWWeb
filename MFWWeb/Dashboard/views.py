@@ -67,6 +67,16 @@ def modules(request):
         context={}
     )
 
+def homepage(request):
+    """
+    View function for the index of the site.
+    """
+    return render(
+        request,
+        'homepage.html',
+        context={}
+    )
+
 def prequiz(request):
     answer = ''
     num = 0
