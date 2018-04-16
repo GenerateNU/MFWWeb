@@ -27,4 +27,5 @@ urlpatterns = [
     path('feedback/', views.feedback, name='feedback'),
     path('create_class/', views.create_class, name='create_class'),
     path('classes/', views.ClassListView.as_view(), name='classes'),
+    path('class/<int:pk>', views.ClassDetailView.as_view(), name='class-detail'),
 ]

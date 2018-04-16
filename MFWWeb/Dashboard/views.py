@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.views import generic
 from django.views.generic.edit import FormView
-
+from django.shortcuts import get_list_or_404, get_object_or_404
 from .forms import ClassForm, Quiz, SignUpForm
 from .models import Class, Student, Teacher
 
@@ -62,22 +62,22 @@ class ClassListView(generic.ListView):
     model = Class
 
 
+class ClassDetailView(generic.DetailView):
+    model = Class
+
+
+def class_detail_view(request,pk):
+    class_id=get_object_or_404(Class, pk=pk)
+
+    return render(
+        request,
+        'class/class_detail.html',
+        context={'class':class_id,}
+    )
+
+
 class StudentDetailView(generic.DetailView):
     model = Student
-
-    def book_detail_view(request, pk):
-        try:
-            book_id = Book.objects.get(pk=pk)
-        except Book.DoesNotExist:
-            raise Http404("Book does not exist")
-
-            #book_id=get_object_or_404(Book, pk=pk)
-
-        return render(
-            request,
-            'catalog/book_detail.html',
-            context={'book': book_id, }
-        )
 
 
 def modules(request):
@@ -318,7 +318,7 @@ def create_class(request):
         new_class.save()
         return redirect('teachers')
     return render(
-        request, 'class/create_class.html', {'form': form}
+        request, 'Dashboard/create_class.html', {'form': form}
     )
 
 

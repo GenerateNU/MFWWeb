@@ -58,7 +58,6 @@ class Class(models.Model):
     """
     Model representing a class
     """
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Class Unique ID")
     name = models.CharField(max_length=200, help_text="Enter a classroom name.")
     students = models.ManyToManyField(Student, help_text="Select student name.")
     teacher = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
@@ -68,3 +67,6 @@ class Class(models.Model):
         Returns class name
         """
         return '{0}'.format(self.name)
+
+    def get_absolute_url(self):
+        return reverse('class-detail', args=[str(self.id)])

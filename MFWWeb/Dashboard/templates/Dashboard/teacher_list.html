@@ -11,7 +11,9 @@
       {% if classes %}
       <ul>
         {% for c in classes %}
-            <li><strong>{{ c.name }}</strong></li>
+          <li>
+            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+          </li>
         {% endfor %}
       </ul>
       {% else %}
