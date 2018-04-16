@@ -1,0 +1,77 @@
+{% extends "base_generic.html" %}
+var questions = {{ questions }}
+var responses = {{ responses }}
+
+
+{% block content %}
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+  <div class = "body">
+    <div class= "done"> All Done! </div> <br/>
+    Questions: {{ questions }}<br/> <br/>
+    Answers: {{ responses }} </br>
+    <form>
+<input class= "goback" type="button" value="Go Back" onclick="window.location.href='{% url 'q1' %}'" />
+<input class= "goback" type="button" value="Home" onclick="window.location.href='{% url 'frontpage' %}'" />
+</form>
+  </div>
+
+  <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.malariafreeworld.org&layout=button_count&size=small&mobile_iframe=false&width=75&height=20&appId"
+  width="75" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+  <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=I%20Love%20Malaria%20Free%20World%20App">
+  Tweet</a>
+
+
+</body>
+</html>
+<style>
+.done {
+  font-size: 32px;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.goback {
+  color: #60496d;
+}
+.body {
+    background-color: #60496d;
+    border: 10px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Charcoal, sans-serif;
+}
+
+
+
+</style
+{% endblock %}

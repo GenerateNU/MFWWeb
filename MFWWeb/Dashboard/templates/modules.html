@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
+
+<h1>MODULES</h1>
+
+
+<a href="http://www.malariafreeworld.org/faqs.html" target="_blank" class="educate">Educate</a>
+<a href="http://nebula.wsimg.com/31619ce741320f80ded5ced744b8ff15?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1" download="MFWCrossword1" class="understand">Download Crossword</a>
+<a href="{% url 'prequiz' %}" class="empower">Empower Pre Quiz</a>
+
+
+<style>
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;}
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    font-size: 64px;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.educate {
+    align-self: center;
+    background-color: #60496d;
+    border: 14px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    display: block;
+    font-size: 32px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.educate:hover {
+  background-color: grey;
+  color: #FF4F41;
+}
+
+.understand {
+    background-color: #60496d;
+    border: 14px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.understand:hover {
+  background-color: grey;
+  color: #6CC0C3;
+}
+
+.empower {
+    background-color: #60496d;
+    border: 14px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.empower:hover {
+  background-color: grey;
+  color: #A7DBC5;
+}
+
+</style>
+{% endblock %}

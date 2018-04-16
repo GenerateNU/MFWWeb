@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MFWA Front Page</title>
+<!--
+
+Template 2097 Pop
+
+http://www.tooplate.com/view/2097-pop
+
+-->
+    <!-- load CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">                 <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                  <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/fontawesome-all.min.css' %}">                <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>                       <!-- http://kenwheeler.github.io/slick/ -->
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">                                 <!-- Templatemo style -->
+
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
+
+</head>
+
+<body>
+    <div id="tm-bg"></div>
+    <div id="tm-wrap">
+        <div class="tm-main-content">
+            <div class="container tm-site-header-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
+                        <div class="tm-site-header">
+                            <h1 class="mb-4">MALARIA FREE WORLD APP</h1>
+                            <img class="img-fluid mb-4" src="{% static 'img/underline.png' %}">
+                            <p>Welcome to the Malaria Free World app</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="content">
+                            <div class="grid">
+                                <div class="grid__item" id="home-link">
+                                    <div class="product">
+                                        <div class="tm-nav-link">
+                                            <i class="fas fa-question fa-3x tm-nav-icon"></i>
+                                            <span class="tm-nav-text">About us</span>
+                                            <div class="product__bg"></div>
+                                        </div>
+                                        <div class="product__description">
+                                          <div class="p-sm-4 p-2">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            <div class="row">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                      <div class="grid__item" id="team-link" onclick="location.href='{% url 'create_class' %}';">
+                                          <div class="product">
+                                              <div class="tm-nav-link">
+                                                  <i class="fas fa-users fa-3x tm-nav-icon"></i>
+                                                  <span class="tm-nav-text">Create a Class</span>
+                                              </div>
+                                              <div class="product__description">
+                                                  <div class="p-sm-4 p-2">
+                                                      <div class="row mb-3">
+                                                      </div>
+                                                      <div class="row tm-reverse-sm">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="grid__item" onclick="location.href='{% url 'classes' %}';">
+                                          <div class="product">
+                                              <div class="tm-nav-link">
+                                                  <i class="fas fa-handshake fa-3x tm-nav-icon"></i>
+                                                  <span class="tm-nav-text">Join a Class</span>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="grid__item">
+                                          <div class="product">
+                                              <div class="tm-nav-link">
+                                                  <i class="fas fa-user fa-3x tm-nav-icon"></i>
+                                                  <span class="tm-nav-text">Continue as Guest</span>
+                                                  <div class="product__bg"></div>
+                                              </div>
+                                              <div class="product__description">
+                                                  <div class="pt-sm-4 pb-sm-4 pl-sm-5 pr-sm-5 pt-2 pb-2 pl-3 pr-3">
+                                                      <div class="row mb-3">
+                                                      </div>
+                                                      <div class="row mb-4">
+                                                      </div>
+                                                      <div class="row">
+                                                          <div class="col-12">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div> <!-- .tm-main-content -->
+          </div>
+    <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>         <!-- https://jquery.com/ -->
+    <script src="{% static 'slick/slick.min.js' %}"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
+    <script src="{% static 'js/anime.min.js' %}"></script>                     <!-- http://animejs.com/ -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

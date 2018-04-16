@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+<form
+action="
+{% if submitbutton == "Submit"%}
+  {% if num == 0 %}
+    {% if answer == "correct" %}
+      {% url 'q1' %}
+    {% else %}
+      {% url 'q1' %}
+    {% endif %}
+  {% elif num == 1 %}
+    {% url 'q2' %}
+  {% elif num == 2 %}
+    {% url 'q3' %}
+  {% elif num == 3 %}
+    {% url 'q4' %}
+  {% elif num == 4 %}
+    {% url 'q5' %}
+  {% elif num == 5 %}
+    {% if answer == "correct" %}
+      {% url 'q6' %}
+    {% else %}
+      {% url 'q4' %}
+    {% endif %}
+  {% elif num == 6 %}
+    {% if answer == "correct" %}
+      {% url 'q7' %}
+    {% else %}
+      {% url 'q8' %}
+    {% endif %}
+  {% elif num == 7 %}
+    {% url 'q8' %}
+  {% elif num == 8 %}
+    {% if answer == "correct" %}
+      {% url 'q9' %}
+    {% else %}
+      {% url 'q4' %}
+    {% endif %}
+  {% elif num == 9 %}
+      {% url 'q10' %}
+  {% else %}
+    {% url 'q1' %}
+  {% endif %}
+{% endif %}
+"
+method="POST"
+class = "main"
+>
+Question: {{num}} <br />
+<label> {{ question }}</label>
+
+{% csrf_token %}
+{{ form.as_p }}
+
+<input type="Submit" name="Submit" value="Submit" class="submit"/>
+</form>
+
+</body>
+</html>
+
+<style>
+.submit{
+  color: #60496d;
+}
+.main {
+    background-color: #60496d;
+    border: 14px solid #ac93ba;
+    color: #e2e2e2;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Impact, Charcoal, sans-serif;
+}
+</style>
+{% endblock %}

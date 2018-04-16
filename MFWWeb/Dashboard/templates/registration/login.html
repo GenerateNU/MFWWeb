@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Log in to My Site</h2>
+  {% if form.errors %}
+    <p style="color: red">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% load bootstrap_tags %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    {{ form|as_bootstrap }}
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </div>
+  </form>
+
+  <h3>
+    <a href="{% url 'signup' %}">Sign up</a>
+  </h3>
+
+{% endblock %}
