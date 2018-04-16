@@ -52,6 +52,11 @@ class StudentListView(generic.ListView):
 class TeacherListView(generic.ListView):
     model = Teacher
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['classes'] = Class.objects.filter(teacher=self.request.user)
+        return context
+
 
 class ClassListView(generic.ListView):
     model = Class
@@ -309,8 +314,9 @@ def create_class(request):
     form = ClassForm(request.POST)
     if form.is_valid():
         class_name = form.cleaned_data.get("class_name")
-        new_class = Class(name=class_name)
+        new_class = Class(name=class_name, teacher=request.user)
         new_class.save()
+        return redirect('teachers')
     return render(
         request, 'class/create_class.html', {'form': form}
     )
