@@ -4,6 +4,7 @@ from . import forms
 
 urlpatterns = [
     path('',views.index,name='index'),
+    path('homepage/',views.homepage,name='homepage'),
     path('frontpage/',views.frontpage,name='frontpage'),
     path('modules/',views.modules,name='modules'),
     path('students/', views.StudentListView.as_view(), name='students'),
