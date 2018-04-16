@@ -1,15 +1,17 @@
 from django.urls import path
-from . import views
-from . import forms
+
+from . import forms, views
 
 urlpatterns = [
-    path('',views.index,name='index'),
-    path('homepage/',views.homepage,name='homepage'),
-    path('frontpage/',views.frontpage,name='frontpage'),
-    path('modules/',views.modules,name='modules'),
+    path('', views.index, name='index'),
+    path('homepage/', views.homepage, name='homepage'),
+    path('signup/', views.signup, name='signup'),
+    path('frontpage/', views.frontpage, name='frontpage'),
+    path('modules/', views.modules, name='modules'),
     path('students/', views.StudentListView.as_view(), name='students'),
     path('teachers/', views.TeacherListView.as_view(), name='teachers'),
-    path('students/<int:id >', views.StudentDetailView.as_view(), name='student-detail'),
+    path('students/<int:id >', views.StudentDetailView.as_view(),
+         name='student-detail'),
     path('students/', views.StudentDetailView.as_view(), name='student-detail'),
     path('prequiz/', views.prequiz, name='prequiz'),
     path('q1/', views.q1, name='q1'),

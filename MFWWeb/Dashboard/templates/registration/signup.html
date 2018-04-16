@@ -4,11 +4,11 @@
 {% load bootstrap_tags %}
 
 <form action="" method="POST">
-    <legend>Create a new class</legend>
+    <legend>Sign up</legend>
     {% csrf_token %}
     {{ form|as_bootstrap }}
     <div class="form-actions">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
 {% endblock %}

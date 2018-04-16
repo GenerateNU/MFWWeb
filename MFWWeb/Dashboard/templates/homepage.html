@@ -2,16 +2,12 @@
 
 {% block content %}
 <div class="main">
-<img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
+  <img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
 
-<h1>HOMEPAGE</h1>
-
-<a href="{% url 'index' %}" class="app">Enter App</a>
-<a href="" class="aboutus">About Us</a>
-<a href="" download="MFWCrossword1" class="create">Create A Class</a>
-<a href="" class="guest">Continue as a Guest</a>
-
-
+  <a href="{% url 'index' %}" class="app">Enter App</a>
+  <a href="" class="aboutus">About Us</a>
+  <a href="{% url 'login' %}" class="login">Continue as a Teacher</a>
+  <a href="" class="guest">Continue as a Guest</a>
 <div>
 
 <style>
@@ -52,7 +48,7 @@ h1 {
   color: #FF4F41;
 }
 
-.create {
+.login {
     background-color: #60496d;
     border: 14px solid #ac93ba;
     color: #e2e2e2;
