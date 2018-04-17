@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils.crypto import get_random_string
 
 class Student(models.Model):
     """
@@ -61,6 +62,8 @@ class Class(models.Model):
     name = models.CharField(max_length=200, help_text="Enter a classroom name.")
     students = models.ManyToManyField(Student, help_text="Select student name.")
     teacher = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    code = models.CharField(max_length=6, default=get_random_string(length=6))
+
 
     def __str__(self):
         """
