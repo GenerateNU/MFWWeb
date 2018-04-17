@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.views import generic
 from django.views.generic.edit import FormView
 from django.shortcuts import get_list_or_404, get_object_or_404
-from .forms import ClassForm, Quiz, SignUpForm
+from .forms import ClassForm, Quiz, SignUpForm, StudentForm
 from .models import Class, Student, Teacher
 
 one = ['Ask a Question 1', 'Ask a Question 2',
@@ -54,7 +54,8 @@ class TeacherListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['classes'] = Class.objects.filter(teacher=self.request.user)
+        if self.request.user:
+            context['classes'] = Class.objects.filter(teacher=self.request.user)
         return context
 
 
@@ -67,12 +68,14 @@ class ClassDetailView(generic.DetailView):
 
 
 def class_detail_view(request,pk):
-    class_id=get_object_or_404(Class, pk=pk)
+    class_id = get_object_or_404(Class, pk=pk)
+    students = Student.objects.filter(target_class=class_id)
+    print(students)
 
     return render(
         request,
         'class/class_detail.html',
-        context={'class':class_id,}
+        context={'class': class_id, 'students': students}
     )
 
 
@@ -331,7 +334,23 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('homepage')
+            return redirect('teachers')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def student_signup(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
+            class_code = form.cleaned_data.get('class_code')
+            target_class = Class.objects.get(code=class_code)
+            student = Student(first_name=first_name, last_name=last_name, target_class=target_class, progress=0)
+            student.save()
+            return redirect('homepage')
+    else:
+        form = StudentForm()
+    return render(request, 'registration/student_signup.html', {'form': form})
