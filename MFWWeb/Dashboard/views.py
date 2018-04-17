@@ -54,7 +54,7 @@ class TeacherListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user:
+        if not self.request.user.is_anonymous:
             context['classes'] = Class.objects.filter(teacher=self.request.user)
         return context
 
