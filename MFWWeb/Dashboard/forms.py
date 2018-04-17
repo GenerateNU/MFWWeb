@@ -34,3 +34,9 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name',
                   'email', 'password1', 'password2', )
+
+
+class StudentForm(forms.Form):
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    class_code = forms.CharField(max_length=6, required=True)

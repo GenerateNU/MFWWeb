@@ -12,7 +12,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=200, help_text="Enter your first name.")
     last_name = models.CharField(max_length=200, help_text="Enter your last name.")
     progress = models.IntegerField()
-
+    target_class = models.ForeignKey('Class', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         """
