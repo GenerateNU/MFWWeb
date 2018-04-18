@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Name: {{ class.name }}</h1>
+  <h1>Class Code: {{ class.code }}</h1>
+
+  {{ students }} abc
+  {% for student in students %}
+  <strong>{{ student.first_name }} {{student.last_name}}</strong>
+  <div class="progress">
+    <div id = 'progressBar' class="progress-bar-striped progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:{{ student.progress }}%;">
+      {{ student.progress }}%
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
