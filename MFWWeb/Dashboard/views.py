@@ -16,19 +16,13 @@ one = ['Ask a Question 1', 'Ask a Question 2',
 two = ["Research 1", "Research 2", "Research 3", "Research 4", "Research 5",
        "Research 6", "Research 7", "Research 8", "Research 9", "Research 10"]
 three = ["Hypothesis 1", "Hypothesis 2", "Hypothesis 3", "Hypothesis 4"]
-four = ["Experiment 1", "Experiment 2", "Experiment 3", "Experiment 4", "Experiment 5",
-        "Experiment 6", "Experiment 7", "Experiment 8", "Experiment 9", "Experiment 10"]
-five = ["Is the procedure working?"]
-six = ["Analyze Data 1", "Analyze Data 2", "Analyze Data 3", "Analyze Data 4", "Analyze Data 5",
-       "Analyze Data 6", "Analyze Data 7", "Analyze Data 8", "Analyze Data 9", "Analyze Data 10"]
-seven = ["Results align 1", "Results align 2", "Results align 3", "Results align 4", "Results align 5",
-         "Results align 6", "Results align 7", "Results align 8", "Results align 9", "Results align 10"]
-eight = ["Results do not align 1", "Results do not align 2", "Results do not align 3", "Results do not align 4", "Results do not align 5",
-         "Results do not align 6", "Results do not align 7", "Results do not align 8", "Results do not align 9", "Results do not align 10"]
-nine = ["Communicate results 1", "Communicate results 2", "Communicate results 3", "Communicate results 4", "Communicate results 5",
-        "Communicate results 6", "Communicate results 7", "Communicate results 8", "Communicate results 9", "Communicate results 10"]
-responses = ['', '', '', '', '', '', '', '', '', '']
-questions = ['', '', '', '', '', '', '', '', '', '']
+four = ["Experiment 1", "Experiment 2", "Experiment 3", "Experiment 4", "Experiment 5", "Experiment 6", "Experiment 7", "Experiment 8", "Experiment 9", "Experiment 10"]
+six = ["Analyze Data 1", "Analyze Data 2", "Analyze Data 3", "Analyze Data 4", "Analyze Data 5", "Analyze Data 6", "Analyze Data 7", "Analyze Data 8", "Analyze Data 9", "Analyze Data 10"]
+seven = ["Results align 1", "Results align 2", "Results align 3", "Results align 4", "Results align 5", "Results align 6", "Results align 7", "Results align 8", "Results align 9", "Results align 10"]
+eight = ["Results do not align 1", "Results do not align 2", "Results do not align 3", "Results do not align 4", "Results do not align 5", "Results do not align 6", "Results do not align 7", "Results do not align 8", "Results do not align 9", "Results do not align 10"]
+nine = ["Communicate results 1", "Communicate results 2", "Communicate results 3", "Communicate results 4", "Communicate results 5", "Communicate results 6", "Communicate results 7", "Communicate results 8", "Communicate results 9", "Communicate results 10"]
+responses = ['', '', '', '', '', '', '', '', '']
+questions = ['', '', '', '', '', '', '', '', '']
 # Create your views here.
 
 
@@ -104,35 +98,16 @@ def homepage(request):
         context={}
     )
 
-
-def prequiz(request):
-    answer = ''
-    num = 0
-    question = "Bednets (T) or Wells (F)"
-    questions[num] = question
-    submitbutton = request.POST.get("Submit")
-    form = Quiz(request.POST)
-    if form.is_valid():
-        answer = form.cleaned_data.get("answer")
-        responses[num] = answer
-    return render(
-        request,
-        'quiz.html',
-        {'form': form, 'answer': answer, 'submitbutton': submitbutton,
-         'question': question, 'num': num}
-    )
-
-
-def q1(request):
+def simulation(request):
     answer = ''
     num = 1
-    question = one[random.randint(0, len(one) - 1)]
-    questions[num] = question
+    question = "Which simulation did you run, Bednets (T) or Wells (F)?"
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 1] = answer
     return render(
         request,
         'quiz.html',
@@ -141,16 +116,17 @@ def q1(request):
     )
 
 
-def q2(request):
+def ques(request):
     answer = ''
     num = 2
-    question = two[random.randint(0, len(two) - 1)]
-    questions[num] = question
+    question = "Answer the following question T or F: "
+    question = question + one[random.randint(0, len(one) - 1)]
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
         request,
         'quiz.html',
@@ -158,17 +134,17 @@ def q2(request):
          'question': question, 'num': num}
     )
 
-
-def q3(request):
+def res(request):
     answer = ''
     num = 3
-    question = three[random.randint(0, len(three) - 1)]
-    questions[num] = question
+    question = "Research if the following is True: "
+    question = question + two[random.randint(0, len(two) - 1)]
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
         request,
         'quiz.html',
@@ -176,17 +152,22 @@ def q3(request):
          'question': question, 'num': num}
     )
 
-
-def q4(request):
+def hyp(request):
     answer = ''
     num = 4
-    question = four[random.randint(0, len(four) - 1)]
-    questions[num] = question
+    question = "Which hypothesis is more likely, based off the research conducted? "
+    qa = three[random.randint(0, len(three) - 1)]
+    if qa != three[0]:
+        three[0] = qa
+    else:
+        qa = three[random.randint(1, len(three) - 1)]
+    question = question + qa
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
         request,
         'quiz.html',
@@ -194,17 +175,16 @@ def q4(request):
          'question': question, 'num': num}
     )
 
-
-def q5(request):
+def test(request):
     answer = ''
     num = 5
-    question = five[random.randint(0, len(five) - 1)]
-    questions[num] = question
+    question = "Test your hypothesis '" + three[0] + "' by conducting the following test: " + four[random.randint(0, len(four) - 1)]
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
         request,
         'quiz.html',
@@ -212,17 +192,16 @@ def q5(request):
          'question': question, 'num': num}
     )
 
-
-def q6(request):
+def work(request):
     answer = ''
     num = 6
-    question = six[random.randint(0, len(six) - 1)]
-    questions[num] = question
     submitbutton = request.POST.get("Submit")
+    question = "Is the procedure working?"
+    questions[num - 1] = question
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
         request,
         'quiz.html',
@@ -230,53 +209,61 @@ def q6(request):
          'question': question, 'num': num}
     )
 
-
-def q7(request):
-    answer = ''
+def data(request):
+    submitbutton = request.POST.get("Submit")
     num = 7
-    question = seven[random.randint(0, len(seven) - 1)]
-    questions[num] = question
-    submitbutton = request.POST.get("Submit")
+    answer = ''
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
-    return render(
-        request,
-        'quiz.html',
-        {'form': form, 'answer': answer, 'submitbutton': submitbutton,
-         'question': question, 'num': num}
-    )
+        responses[num - 2] = answer
+    if answer != "correct":
 
+        return render(
+                request,
+                'quiz.html',
+                {'form': form, 'answer': answer, 'submitbutton': submitbutton, 'question': "The procedure is not working! ", 'num': 4}
+        )
+    else:
+        question = "The procedure is working! What did the simulation prove? "
+        question = question + six[random.randint(0, len(six) - 1)]
+        questions[3] = question
+        return render(
+                request,
+                'quiz.html',
+                {'form': form, 'answer': answer, 'submitbutton': submitbutton, 'question': question, 'num': 7}
+        )
 
-def q8(request):
+def align(request):
     answer = ''
     num = 8
-    question = eight[random.randint(0, len(eight) - 1)]
-    questions[num] = question
+    question = "Do these results align with " + three[0] + "?"
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
     return render(
-        request,
-        'quiz.html',
-        {'form': form, 'answer': answer, 'submitbutton': submitbutton,
-         'question': question, 'num': num}
+            request,
+            'quiz.html',
+            {'form': form, 'answer': answer, 'submitbutton': "Submit", 'question': question, 'num': num}
     )
 
-
-def q9(request):
+def comm(request):
     answer = ''
     num = 9
     question = nine[random.randint(0, len(nine) - 1)]
-    questions[num] = question
+    questions[num - 1] = question
     submitbutton = request.POST.get("Submit")
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-        responses[num] = answer
+        responses[num - 2] = answer
+    if answer != "correct":
+        num = 3
+    else:
+        num = 9
     return render(
         request,
         'quiz.html',
@@ -284,15 +271,19 @@ def q9(request):
          'question': question, 'num': num}
     )
 
-
-def q10(request):
-    data = responses
+def done(request):
+    answer = ''
+    num = 10
+    submitbutton = request.POST.get("Submit")
+    form = Quiz(request.POST)
+    if form.is_valid():
+        answer = form.cleaned_data.get("answer")
+        responses[num - 2] = answer
     return render(
-        request,
-        'done.html',
-        {'responses': responses, 'questions': questions}
+            request,
+            'done.html',
+            {'responses': responses, 'questions':  questions}
     )
-
 
 def feedback(request):
     return render(
