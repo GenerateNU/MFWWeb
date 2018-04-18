@@ -63,3 +63,8 @@ Pipfile*
 
 # db file
 *.sqlite3
+
+# python compiled
+*.pyc
+
+.DS_Store
