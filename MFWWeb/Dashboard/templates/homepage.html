@@ -2,13 +2,41 @@
 
 {% block content %}
 <div class="main">
-  <img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
+<img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
 
-  <a href="{% url 'index' %}" class="app">Enter App</a>
-  <a href="" class="aboutus">About Us</a>
-  <a href="{% url 'login' %}" class="login">Continue as a Teacher</a>
-  <a href="{% url 'modules' %}" class="guest">Continue as a Guest</a>
+<a href="{% url 'students' %}" class="create">Continue as Student</a>
+<a href="{% url 'login' %}" class="create">Continue as Teacher</a>
+<a href="{% url 'modules' %}" class="create">Continue as a Guest</a>
+<a href="http://www.malariafreeworld.org/about.html" class="create">About Us</a>
 <div>
+
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));
+  </script>
+
+
+
+
+  <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.malariafreeworld.org&layout=button_count&size=small&mobile_iframe=false&width=75&height=20&appId"
+  width="75" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+  <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=I%20Love%20Malaria%20Free%20World%20App">
+  Tweet</a>
 
 <style>
 .main {
@@ -21,34 +49,7 @@ img{
     margin-right: auto;
     width: 50%;
   }
-h1 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-    font-size: 64px;
-    font-family: Impact, Charcoal, sans-serif;
-}
-.aboutus {
-    align-self: center;
-    background-color: #60496d;
-    border: 14px solid #ac93ba;
-    color: #e2e2e2;
-    padding: 16px 32px;
-    text-align: center;
-    display: block;
-    font-size: 32px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    font-family: Impact, Charcoal, sans-serif;
-}
-.aboutus:hover {
-  background-color: grey;
-  color: #FF4F41;
-}
-
-.login {
+.create {
     background-color: #60496d;
     border: 14px solid #ac93ba;
     color: #e2e2e2;
@@ -66,45 +67,6 @@ h1 {
   background-color: grey;
   color: #6CC0C3;
 }
-
-.guest {
-    background-color: #60496d;
-    border: 14px solid #ac93ba;
-    color: #e2e2e2;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 32px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    font-family: Impact, Charcoal, sans-serif;
-}
-.guest:hover {
-  background-color: grey;
-  color: #A7DBC5;
-}
-
-.app {
-  background-color: #60496d;
-  border: 14px solid #ac93ba;
-  color: #e2e2e2;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 32px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  font-family: Impact, Charcoal, sans-serif;
-}
-.app:hover {
-  background-color: grey;
-  color: #A7DBC5;
-}
-
 
 </style>
 
