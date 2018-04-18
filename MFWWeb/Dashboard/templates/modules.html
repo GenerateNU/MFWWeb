@@ -1,15 +1,10 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<img src="http://nebula.wsimg.com/aaa0cbb9f191aca4bb90253447d0353e?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
-
-<h1>MODULES</h1>
-
-
+<img src="http://nebula.wsimg.com/cefc709bd27224f6e0891ce66f3cd5b0?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1">
 <a href="http://www.malariafreeworld.org/faqs.html" target="_blank" class="educate">Educate</a>
 <a href="http://nebula.wsimg.com/31619ce741320f80ded5ced744b8ff15?AccessKeyId=5B0537F3E41F17510FAD&disposition=0&alloworigin=1" download="MFWCrossword1" class="understand">Download Crossword</a>
-<a href="{% url 'prequiz' %}" class="empower">Empower Pre Quiz</a>
-
+<a href="{% url 'simulation' %}" class="empower">Empower Pre Quiz</a>
 
 <style>
 img{
@@ -17,14 +12,7 @@ img{
     margin-left: auto;
     margin-right: auto;
     width: 50%;}
-h1 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-    font-size: 64px;
-    font-family: Impact, Charcoal, sans-serif;
-}
+
 .educate {
     align-self: center;
     background-color: #60496d;
