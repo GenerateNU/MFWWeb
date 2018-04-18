@@ -54,7 +54,7 @@ class TeacherListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user:
+        if not self.request.user.is_anonymous:
             context['classes'] = Class.objects.filter(teacher=self.request.user)
         return context
 
@@ -317,7 +317,7 @@ def create_class(request):
     form = ClassForm(request.POST)
     if form.is_valid():
         class_name = form.cleaned_data.get("class_name")
-        new_class = Class(name=class_name, teacher=request.user)
+        new_class = Class(name=class_name, teacher=Teacher.objects.get(id=request.user.id))
         new_class.save()
         return redirect('teachers')
     return render(
