@@ -29,7 +29,11 @@ ga('send', 'pageview');
 <body>
 
   <div class="container-fluid">
-
+    {% if not request.user.is_anonymous %}
+      <div>
+        <span style="float:right">Logged in as {{ request.user }}</span>
+      </div>
+    {% endif %}
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
