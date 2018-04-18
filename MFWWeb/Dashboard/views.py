@@ -9,6 +9,7 @@ from django.views.generic.edit import FormView
 from django.shortcuts import get_list_or_404, get_object_or_404
 from .forms import ClassForm, Quiz, SignUpForm, StudentForm
 from .models import Class, Student, Teacher
+from django.utils.crypto import get_random_string
 
 one = ['Ask a Question 1', 'Ask a Question 2',
        'Ask a Question 3', 'Ask a Question 4']
@@ -70,11 +71,10 @@ class ClassDetailView(generic.DetailView):
 def class_detail_view(request,pk):
     class_id = get_object_or_404(Class, pk=pk)
     students = Student.objects.filter(target_class=class_id)
-    print(students)
 
     return render(
         request,
-        'class/class_detail.html',
+        'Dashboard/class_detail.html',
         context={'class': class_id, 'students': students}
     )
 
@@ -294,17 +294,6 @@ def q10(request):
     )
 
 
-def frontpage(request):
-    """
-    View function for the index of the site.
-    """
-    return render(
-        request,
-        'frontpage.html',
-        context={}
-    )
-
-
 def feedback(request):
     return render(
         request,
@@ -348,9 +337,9 @@ def student_signup(request):
             last_name = form.cleaned_data.get('last_name')
             class_code = form.cleaned_data.get('class_code')
             target_class = Class.objects.get(code=class_code)
-            student = Student(first_name=first_name, last_name=last_name, target_class=target_class, progress=0)
+            student = Student(first_name=first_name, last_name=last_name, target_class=target_class, progress=0, username=get_random_string(length=6))
             student.save()
-            return redirect('homepage')
+            return redirect('modules')
     else:
         form = StudentForm()
     return render(request, 'registration/student_signup.html', {'form': form})
