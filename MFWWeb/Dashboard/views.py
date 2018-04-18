@@ -294,17 +294,6 @@ def q10(request):
     )
 
 
-def frontpage(request):
-    """
-    View function for the index of the site.
-    """
-    return render(
-        request,
-        'frontpage.html',
-        context={}
-    )
-
-
 def feedback(request):
     return render(
         request,
