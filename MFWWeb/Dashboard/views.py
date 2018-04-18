@@ -71,11 +71,10 @@ class ClassDetailView(generic.DetailView):
 def class_detail_view(request,pk):
     class_id = get_object_or_404(Class, pk=pk)
     students = Student.objects.filter(target_class=class_id)
-    print(students)
 
     return render(
         request,
-        'class/class_detail.html',
+        'Dashboard/class_detail.html',
         context={'class': class_id, 'students': students}
     )
 
