@@ -15,7 +15,6 @@ one = ['Ask a Question 1', 'Ask a Question 2',
 two = ["Research 1", "Research 2", "Research 3", "Research 4", "Research 5",
        "Research 6", "Research 7", "Research 8", "Research 9", "Research 10"]
 three = ["Hypothesis 1", "Hypothesis 2", "Hypothesis 3", "Hypothesis 4"]
-<<<<<<< HEAD
 four = ["Experiment 1", "Experiment 2", "Experiment 3", "Experiment 4", "Experiment 5", "Experiment 6", "Experiment 7", "Experiment 8", "Experiment 9", "Experiment 10"]
 six = ["Analyze Data 1", "Analyze Data 2", "Analyze Data 3", "Analyze Data 4", "Analyze Data 5", "Analyze Data 6", "Analyze Data 7", "Analyze Data 8", "Analyze Data 9", "Analyze Data 10"]
 seven = ["Results align 1", "Results align 2", "Results align 3", "Results align 4", "Results align 5", "Results align 6", "Results align 7", "Results align 8", "Results align 9", "Results align 10"]
@@ -23,21 +22,6 @@ eight = ["Results do not align 1", "Results do not align 2", "Results do not ali
 nine = ["Communicate results 1", "Communicate results 2", "Communicate results 3", "Communicate results 4", "Communicate results 5", "Communicate results 6", "Communicate results 7", "Communicate results 8", "Communicate results 9", "Communicate results 10"]
 responses = ['', '', '', '', '', '', '', '', '']
 questions = ['', '', '', '', '', '', '', '', '']
-=======
-four = ["Experiment 1", "Experiment 2", "Experiment 3", "Experiment 4", "Experiment 5",
-        "Experiment 6", "Experiment 7", "Experiment 8", "Experiment 9", "Experiment 10"]
-five = ["Is the procedure working?"]
-six = ["Analyze Data 1", "Analyze Data 2", "Analyze Data 3", "Analyze Data 4", "Analyze Data 5",
-       "Analyze Data 6", "Analyze Data 7", "Analyze Data 8", "Analyze Data 9", "Analyze Data 10"]
-seven = ["Results align 1", "Results align 2", "Results align 3", "Results align 4", "Results align 5",
-         "Results align 6", "Results align 7", "Results align 8", "Results align 9", "Results align 10"]
-eight = ["Results do not align 1", "Results do not align 2", "Results do not align 3", "Results do not align 4", "Results do not align 5",
-         "Results do not align 6", "Results do not align 7", "Results do not align 8", "Results do not align 9", "Results do not align 10"]
-nine = ["Communicate results 1", "Communicate results 2", "Communicate results 3", "Communicate results 4", "Communicate results 5",
-        "Communicate results 6", "Communicate results 7", "Communicate results 8", "Communicate results 9", "Communicate results 10"]
-responses = ['', '', '', '', '', '', '', '', '', '']
-questions = ['', '', '', '', '', '', '', '', '', '']
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
 # Create your views here.
 
 
@@ -61,11 +45,10 @@ class StudentListView(generic.ListView):
 
 class TeacherListView(generic.ListView):
     model = Teacher
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.user:
-            context['classes'] = Class.objects.filter(teacher=self.request.user)
+        '''if self.request.user:
+            context['classes'] = Class.objects.filter(teacher=self.request.user)'''
         return context
 
 
@@ -191,12 +174,7 @@ def hyp(request):
          'question': question, 'num': num}
     )
 
-<<<<<<< HEAD
 def test(request):
-=======
-
-def q5(request):
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     answer = ''
     num = 5
     question = "Test your hypothesis '" + three[0] + "' by conducting the following test: " + four[random.randint(0, len(four) - 1)]
@@ -213,12 +191,7 @@ def q5(request):
          'question': question, 'num': num}
     )
 
-<<<<<<< HEAD
 def work(request):
-=======
-
-def q6(request):
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     answer = ''
     num = 6
     submitbutton = request.POST.get("Submit")
@@ -235,54 +208,32 @@ def q6(request):
          'question': question, 'num': num}
     )
 
-<<<<<<< HEAD
 def data(request):
-=======
-
-def q7(request):
-    answer = ''
-    num = 7
-    question = seven[random.randint(0, len(seven) - 1)]
-    questions[num] = question
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     submitbutton = request.POST.get("Submit")
     num = 7
     answer = ''
-    question = "The procedure is working! What did the simulation prove? "
-    question = question + six[random.randint(0, len(six) - 1)]
-    questions[num - 1] = question
     form = Quiz(request.POST)
     if form.is_valid():
         answer = form.cleaned_data.get("answer")
-<<<<<<< HEAD
         responses[num - 2] = answer
     if answer != "correct":
+
         return render(
                 request,
                 'quiz.html',
                 {'form': form, 'answer': answer, 'submitbutton': submitbutton, 'question': "The procedure is not working! ", 'num': 4}
         )
     else:
-        num = 7
+        question = "The procedure is working! What did the simulation prove? "
+        question = question + six[random.randint(0, len(six) - 1)]
+        questions[3] = question
         return render(
                 request,
                 'quiz.html',
-                {'form': form, 'answer': answer, 'submitbutton': submitbutton, 'question': question, 'num': num}
+                {'form': form, 'answer': answer, 'submitbutton': submitbutton, 'question': question, 'num': 7}
         )
 
 def align(request):
-=======
-        responses[num] = answer
-    return render(
-        request,
-        'quiz.html',
-        {'form': form, 'answer': answer, 'submitbutton': submitbutton,
-         'question': question, 'num': num}
-    )
-
-
-def q8(request):
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     answer = ''
     num = 8
     question = "Do these results align with " + three[0] + "?"
@@ -293,23 +244,12 @@ def q8(request):
         answer = form.cleaned_data.get("answer")
         responses[num - 2] = answer
     return render(
-<<<<<<< HEAD
             request,
             'quiz.html',
             {'form': form, 'answer': answer, 'submitbutton': "Submit", 'question': question, 'num': num}
     )
 
 def comm(request):
-=======
-        request,
-        'quiz.html',
-        {'form': form, 'answer': answer, 'submitbutton': submitbutton,
-         'question': question, 'num': num}
-    )
-
-
-def q9(request):
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     answer = ''
     num = 9
     question = nine[random.randint(0, len(nine) - 1)]
@@ -330,7 +270,6 @@ def q9(request):
          'question': question, 'num': num}
     )
 
-<<<<<<< HEAD
 def done(request):
     answer = ''
     num = 10
@@ -343,17 +282,7 @@ def done(request):
             request,
             'done.html',
             {'responses': responses, 'questions':  questions}
-=======
-
-def q10(request):
-    data = responses
-    return render(
-        request,
-        'done.html',
-        {'responses': responses, 'questions': questions}
->>>>>>> 198dc2cb98f12247d896d42ac7e3e557041d6b71
     )
-
 
 def frontpage(request):
     """
